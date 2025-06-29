@@ -1,28 +1,39 @@
 #!/usr/bin/env bash
+source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
+# Copyright (c) 2021-2025 community-scripts ORG
+# Author: MickLesk (CanbiZ)
+# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 
-source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
+APP="NGINX Proxy Manager"
+var_tags="proxy"
+var_cpu="1"
+var_ram="512"
+var_disk="1"
+var_os="alpine"
+var_version="3.22"
+var_unprivileged="1"
+
+header_info "$APP"
+variables
 color
-verb_ip6
 catch_errors
-setting_up_container
-network_check
-update_os
 
-msg_info "Installing Dependencies"
-$STD apk add docker docker-compose --no-cache
-msg_ok "Installed Dependencies"
+function update_script() {
+  header_info
+  check_container_storage
+  check_container_resources
 
-msg_info "Configuring docker"
-rc-update add docker
-service docker start
-msg_ok "Configured docker"
+  exit
+}
 
-msg_info "Configuring nginx-proxy-manager"
-mkdir data
-mkdir letsencrypt
-curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager-docker-compose.yaml -o docker-compose.yaml
-msg_ok "Configured nginx-proxy-manager"
+start
+build_container
 
-msg_info "Starting nginx-proxy-manager"
-docker-compose up -d
-msg_ok "Started nginx-proxy-manager"
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager-install.sh)"
+
+description
+
+msg_ok "Completed Successfully!\n"
+echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
+echo -e "${INFO}${YW} Access it using the following URL:${CL}"
+echo -e "${TAB}${GATEWAY}${BGN}https://${IP}:81${CL}"
