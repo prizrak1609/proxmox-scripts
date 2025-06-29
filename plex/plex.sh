@@ -33,6 +33,9 @@ function update_script() {
   check_container_storage
   check_container_resources
 
+  $STD apt-get update
+  $STD apt-get upgrade -y
+
   exit
 }
 
