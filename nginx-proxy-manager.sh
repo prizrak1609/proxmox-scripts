@@ -4,7 +4,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxV
 # Author: MickLesk (CanbiZ)
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 
-APP="NGINX Proxy Manager"
+APP="NGINX Proxy Manager Custom"
 var_tags="proxy"
 var_cpu="1"
 var_ram="512"
