@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 
-set -x
-
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
