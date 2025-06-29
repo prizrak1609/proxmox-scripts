@@ -11,11 +11,11 @@ sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubuser
 
 source <(cat "$tmp_dir/build.func")
 
-APP="NGINX Proxy Manager"
-var_tags="proxy"
+APP="Mealie"
+var_tags="recipes"
 var_cpu="1"
-var_ram="512"
-var_disk="2"
+var_ram="256"
+var_disk="1"
 var_os="alpine"
 var_version="3.22"
 var_unprivileged="0"
@@ -32,7 +32,7 @@ function update_script() {
   header_info
   check_container_storage
   check_container_resources
-  
+
   $STD docker compose stop
   $STD docker compose rm -f
   $STD docker compose pull   
@@ -44,11 +44,11 @@ function update_script() {
 start
 build_container
 
-lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-install.sh)"
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/mealie/mealie-install.sh)"
 
 description
 
 msg_ok "Completed Successfully!\n"
 echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
 echo -e "${INFO}${YW} Access it using the following URL:${CL}"
-echo -e "${TAB}${GATEWAY}${BGN}https://${IP}:81${CL}"
+echo -e "${TAB}${GATEWAY}${BGN}http://${IP}${CL}"

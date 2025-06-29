@@ -1,0 +1,18 @@
+name: mealie
+
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:latest 
+    container_name: mealie
+    restart: always
+    ports:
+      - "80:9000"
+    volumes:
+      - ./data:/app/data/
+    environment:
+      # Set Backend ENV Variables Here
+      ALLOW_SIGNUP: "false"
+      PUID: 1000
+      PGID: 1000
+      TZ: America/Anchorage
+      BASE_URL: https://mealie.ollaris.org
