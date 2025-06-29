@@ -10,7 +10,7 @@ update_os
 
 msg_info "Installing Transmission"
 $STD apk -U update
-$STD apk upgrade -- no-cache
+$STD apk upgrade --no-cache
 $STD apk add transmission-daemon --no-cache
 
 $STD rc-update add transmission-daemon
