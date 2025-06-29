@@ -12,19 +12,19 @@ update_os
 
 msg_info "Installing Dependencies"
 $STD apk add docker docker-compose --no-cache
-msg_ok "Installed Dependencies"
+msg_ok "Installing Dependencies"
 
 msg_info "Configuring docker"
 rc-update add docker
 service docker start
-msg_ok "Configured docker"
+msg_ok "Configuring docker"
 
 msg_info "Configuring nginx-proxy-manager"
 mkdir data
 mkdir letsencrypt
 curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager-docker-compose.yaml -o docker-compose.yaml
-msg_ok "Configured nginx-proxy-manager"
+msg_ok "Configuring nginx-proxy-manager"
 
 msg_info "Starting nginx-proxy-manager"
 docker-compose up -d
-msg_ok "Started nginx-proxy-manager"
+msg_ok "Starting nginx-proxy-manager"
