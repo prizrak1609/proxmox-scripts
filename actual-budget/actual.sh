@@ -71,6 +71,9 @@ function update_script() {
 
 start
 build_container
+
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/actual-budget/actual-install.sh)"
+
 description
 
 msg_ok "Completed Successfully!\n"
