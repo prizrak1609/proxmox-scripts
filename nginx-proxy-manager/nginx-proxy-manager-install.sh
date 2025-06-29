@@ -15,7 +15,7 @@ msg_ok "Installed Dependencies"
 msg_info "Configuring docker"
 $STD rc-update add docker
 $STD service docker start
-$STD sleep 5s
+$STD sleep 1m
 msg_ok "Configured docker"
 
 msg_info "Configuring nginx-proxy-manager"
