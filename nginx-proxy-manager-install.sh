@@ -2,10 +2,7 @@
 
 set -xv
 
-if [ -v FUNCTIONS_FILE_PATH ]
-then
-	export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
-fi
+export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
