@@ -23,6 +23,9 @@ $STD mkdir letsencrypt
 $STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-docker-compose.yaml -o docker-compose.yaml
 msg_ok "Configured nginx-proxy-manager"
 
+motd_ssh
+customize
+
 msg_info "Starting nginx-proxy-manager"
 $STD docker-compose up -d
 msg_ok "Started nginx-proxy-manager"
