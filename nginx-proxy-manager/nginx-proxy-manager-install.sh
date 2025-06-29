@@ -20,7 +20,7 @@ msg_ok "Configured docker"
 msg_info "Configuring nginx-proxy-manager"
 $STD mkdir data
 $STD mkdir letsencrypt
-$STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager-docker-compose.yaml -o docker-compose.yaml
+$STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-docker-compose.yaml -o docker-compose.yaml
 msg_ok "Configured nginx-proxy-manager"
 
 msg_info "Starting nginx-proxy-manager"

@@ -42,7 +42,7 @@ function update_script() {
 start
 build_container
 
-lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager-install.sh)"
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-install.sh)"
 
 description
 
