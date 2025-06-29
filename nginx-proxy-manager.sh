@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# build_container requires to use https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/"$var_install".sh script
+# so current script is currently unusable
+
 source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: MickLesk (CanbiZ)

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ -z "$FUNCTIONS_FILE_PATH" ]
+then
+	export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
+fi
+
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
 verb_ip6
