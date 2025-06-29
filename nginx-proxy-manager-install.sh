@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -xv
-
 export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
