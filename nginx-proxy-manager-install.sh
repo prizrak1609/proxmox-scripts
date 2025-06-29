@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "$FUNCTIONS_FILE_PATH" ]
+if [ -v FUNCTIONS_FILE_PATH ]
 then
 	export FUNCTIONS_FILE_PATH="$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/alpine-install.func)"
 fi
