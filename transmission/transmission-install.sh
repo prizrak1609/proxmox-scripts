@@ -15,8 +15,6 @@ $STD apk add transmission-daemon --no-cache
 
 $STD rc-update add transmission-daemon
 
-$STD service transmission-daemon stop
-$STD sed -i '{s/"rpc-whitelist-enabled": true/"rpc-whitelist-enabled": false/g; s/"rpc-host-whitelist-enabled": true,/"rpc-host-whitelist-enabled": false,/g}' /var/lib/transmission/config/settings.json
 $STD service transmission-daemon start
 msg_ok "Installed Transmission"
 
