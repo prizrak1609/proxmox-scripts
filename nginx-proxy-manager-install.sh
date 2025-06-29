@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x
+set -xv
 
 if [ -v FUNCTIONS_FILE_PATH ]
 then
