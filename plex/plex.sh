@@ -11,13 +11,13 @@ sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubuser
 
 source <(cat "$tmp_dir/build.func")
 
-APP="NGINX Proxy Manager"
-var_tags="proxy"
-var_cpu="1"
-var_ram="512"
-var_disk="2"
-var_os="alpine"
-var_version="3.22"
+APP="Plex"
+var_tags="media"
+var_cpu="10"
+var_ram="10240"
+var_disk="5"
+var_os="ubuntu"
+var_version="24.10"
 var_unprivileged="0"
 var_verbose="1"
 var_fuse="0"
@@ -39,11 +39,11 @@ function update_script() {
 start
 build_container
 
-lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-install.sh)"
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/plex/plex-install.sh)"
 
 description
 
 msg_ok "Completed Successfully!\n"
 echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
 echo -e "${INFO}${YW} Access it using the following URL:${CL}"
-echo -e "${TAB}${GATEWAY}${BGN}https://${IP}:81${CL}"
+echo -e "${TAB}${GATEWAY}${BGN}http://${IP}:32400/web${CL}"
