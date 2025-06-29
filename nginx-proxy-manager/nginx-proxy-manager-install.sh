@@ -15,7 +15,6 @@ msg_ok "Installed Dependencies"
 msg_info "Configuring docker"
 $STD rc-update add docker
 $STD service docker start
-$STD sleep 1m
 msg_ok "Configured docker"
 
 msg_info "Configuring nginx-proxy-manager"
@@ -28,5 +27,5 @@ motd_ssh
 customize
 
 msg_info "Starting nginx-proxy-manager"
-$STD docker-compose up -d
+$STD docker compose up -d
 msg_ok "Started nginx-proxy-manager"
