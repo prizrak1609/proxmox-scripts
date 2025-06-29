@@ -3,12 +3,21 @@
 # build_container requires to use https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/"$var_install".sh script
 # so current script is currently unusable
 
-source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func)
+tmp_dir=$(mktemp -d)
+
+curl -L https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/build.func -o "$tmp_dir/build.func"
+
+# remove
+# lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/"$var_install".sh)" $?
+# from script so it is usable now
+sed '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/"$var_install".sh)" $?/d' "$tmp_dir/build.func"
+
+source <(cat "$tmp_dir/build.func")
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: MickLesk (CanbiZ)
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 
-APP="NGINX Proxy Manager Custom"
+APP="NGINX Proxy Manager"
 var_tags="proxy"
 var_cpu="1"
 var_ram="512"
