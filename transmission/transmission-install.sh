@@ -15,7 +15,9 @@ $STD apk add transmission-daemon --no-cache
 
 $STD rc-update add transmission-daemon
 
-$STD service transmission-daemon start
+$STD service transmission-daemon stop
+$STD echo "{\"rpc-whitelist-enabled\": false, \"rpc-host-whitelist-enabled\": false, \"port-forwarding-enabled\": false}" > /var/li
+b/transmission/config/settings.json
 msg_ok "Installed Transmission"
 
 motd_ssh
