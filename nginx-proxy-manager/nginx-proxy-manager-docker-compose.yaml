@@ -21,5 +21,5 @@ services:
       DISABLE_IPV6: 'true'
 
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - /data:/data
+      - /letsencrypt:/etc/letsencrypt

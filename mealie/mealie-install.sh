@@ -18,7 +18,7 @@ $STD service docker start
 msg_ok "Configured docker"
 
 msg_info "Configuring mealie"
-$STD mkdir data
+$STD mkdir /data
 $STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/mealie/mealie-docker-compose.yaml -o docker-compose.yaml
 msg_ok "Configured docker"
 

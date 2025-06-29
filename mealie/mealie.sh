@@ -14,7 +14,7 @@ source <(cat "$tmp_dir/build.func")
 APP="Mealie"
 var_tags="recipes"
 var_cpu="1"
-var_ram="256"
+var_ram="512"
 var_disk="2"
 var_os="alpine"
 var_version="3.22"
