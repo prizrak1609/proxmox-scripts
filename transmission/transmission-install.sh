@@ -14,6 +14,8 @@ $STD apk upgrade --no-cache
 $STD apk add transmission-daemon --no-cache
 
 $STD rc-update add transmission-daemon
+$STD echo "runas_user=root" >> /etc/conf.d/transmission-daemon
+$STD echo "logfile=/var/log/transmission/transmission.log" >> /etc/conf.d/transmission-daemon
 
 $STD mkdir -p /var/lib/transmission/config/resume/
 $STD mkdir -p /var/lib/transmission/config/torrents/
