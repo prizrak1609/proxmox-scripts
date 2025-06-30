@@ -18,6 +18,7 @@ $STD rc-update add transmission-daemon
 $STD mkdir -p /var/lib/transmission/config/resume/
 $STD mkdir -p /var/lib/transmission/config/torrents/
 $STD mkdir -p /var/lib/transmission/config/blocklists/
+$STD adduser transmission root
 $STD echo "{\"rpc-whitelist-enabled\": false, \"rpc-host-whitelist-enabled\": false, \"port-forwarding-enabled\": false}" > /var/lib/transmission/config/settings.json
 msg_ok "Installed Transmission"
 
