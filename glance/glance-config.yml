@@ -1,0 +1,256 @@
+server:
+  proxied: true
+pages:
+  - name: Home
+    show-mobile-header: true
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+
+          - type: twitch-channels
+            channels:
+              - cealdre
+              - netanetoy
+              - leb1ga
+              - perrikaryal
+              - alinarinrin
+              - karmikkoala
+              - playua
+              - tsoding
+              - olyashaa
+              - j_blow
+              - thecherno
+              - cheand_tv
+              - bigrussianmum
+              - gilticus
+              - akyulia
+              - litera_vi
+              - larianstudios
+
+
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: hacker-news
+              - type: lobsters
+
+          - type: group
+            widgets:
+              - type: reddit
+                subreddit: technology
+                show-thumbnails: true
+              - type: reddit
+                subreddit: thecherno
+                show-thumbnails: true
+              - type: reddit
+                subreddit: BlackeyedStories
+                show-thumbnails: true
+              - type: reddit
+                subreddit: HomeServer 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: FitGirlRepack 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: CrackWatch
+                show-thumbnails: true
+              - type: reddit
+                subreddit: selfhosted
+                show-thumbnails: true
+              - type: reddit
+                subreddit: LegalTeens 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: BDSMGW 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: HENTAI_GIF 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: HentaiHumiliation 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: hentaibondage 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: chiisaihentai 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: Blowjobs 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: deepthroat 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: nsfwhardcore 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: SheLikesItRough 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: passionx 
+                show-thumbnails: true
+              - type: reddit
+                subreddit: DirtySnapchat 
+                show-thumbnails: true
+
+      - size: small
+        widgets:
+          - type: weather
+            location: Kyiv, Ukraine
+            units: metric
+            hour-format: 12h
+
+          - type: markets
+            hide-header: false
+            markets:
+              - symbol: SPY
+                name: S&P 500
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: AAPL
+                name: Apple
+              - symbol: MSFT
+                name: Microsoft
+              - symbol: BB
+                name: Blackberry
+
+          - type: releases
+            cache: 1d
+            repositories:
+              - glanceapp/glance
+              - go-gitea/gitea
+              - awesome-foss/awesome-sysadmin
+              - awesome-selfhosted/awesome-selfhosted
+              - dockerhub:actualbudget/actual-server
+              - dockerhub:hurlenko/filebrowser
+              - dockerhub:gitea/gitea
+              - dockerhub:glanceapp/glance
+              - dockerhub:hkotel/mealie
+              - dockerhub:jc21/nginx-proxy-manager
+              - dockerhub:interaapps/pastefy
+              - dockerhub:plexinc/pms-docker
+              - dockerhub:ghcr.io/servercontainers/samba
+              - dockerhub:drakkan/sftpgo
+              - dockerhub:jetbrains/teamcity-agent
+              - dockerhub:jetbrains/teamcity-server
+              - dockerhub:linuxserver/transmission
+              - dockerhub:uroni/urbackup-server
+              - dockerhub:gristlabs/grist
+              - dockerhub:jetbrains/youtrack
+
+  - name: Youtube
+    show-mobile-header: true
+    columns:
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: videos
+                style: grid-cards
+                channels:
+                  - UCcqwW8OIYD215WryMaFQWBw
+                  - UCKJZ5id-vvCi9_5ERTmBNHQ
+                  - UCdKuE7a2QZeHPhDntXVZ91w
+                  - UCoz6QG1iK_ji5-E_zoFODkg
+                  - UC-Upyd81gNDs-jzf5iOXTNA
+                  - UC_tWvDuF9lTMbkGpASD2Rag
+                  - UCIPZaYD9-GID_bCEDxCbRXQ
+                  - UCjF8lh-WIVag96haloFq2YQ
+                  - UCk3l3CiIe4rwVWBBAltAbQQ
+                  - UCczhEui5W3VOO2xT81JLQ5A
+                  - UC3yjMTYgk-OUslwfq6J2Jog
+                  - UC20M3T-H-Pv0FPOEfeQJtNQ
+                  - UCQ-W1KE9EYfdxhL6S4twUNw
+                  - UCiqm2CgQB3NSNbygt7BphtQ
+                  - UCLYkNKqZc49EnAeeIl7RN9A
+                  - UCVMFDAVQJH2sxmc26PaV2sg
+                  - UC2Ru64PHqW4FxoP0xhQRvJg
+                  - UCyjf5CxCNEc9ALYlalBiKDQ
+                  - UC7bjKwKv9nwxc3HZh6NoqZg
+                  - UCq7n6C4jqCvf3iOh2gDv5CQ
+                  - UC-ZvduAy0lfI7_UVSecm2ug
+                  - UCIvkS0o7Csl6EuA7gCmdgqg
+                  - UCCKfZSbTG0PmnAVMk0HzoEw
+                  - UCeH7vZk0Zh2czcixcSzP4jw
+                  - UCz3Wl9v_s890LOIxhDYrRww
+                  - UCOxQWb-OuyCSZadzWqrKTCQ
+                  - UCxtTXA5DU1bZHLLomu83zVw
+                  - UCfCVlxInB4VuaDFLGqEQqaA
+                  - UCETn3U0gxyDru6tarDLjtYQ
+                  - UCEbYhDd6c6vngsF5PQpFVWg
+                  - UCNnqx-sh1_9PYguijPsvbtg
+                  - UCt9SXdrwKnV_4WwRjUmHZsQ
+                  - UCYUK9pdAe5WSZoAxwjtlDjw
+                  - UCjkpITUKrPHdKa5Jkk7X8gw
+                  - UC2iLEQOjbk4CJszj34NtqHg
+                  - UCY6zVRa3Km52bsBmpyQnk6A
+                  - UCa9vaEQLpcIAv9u39G-BOXw
+                  - UCFcnbBzej0nGa-uBbROmOnw
+                  - UCMLFh5vXIQQ-Gy90bExdyIg
+                  - UCPs36P_p6F6DPp5DRKFnmsA
+                  - UChIq04uLIDJfp1v647-5N_g
+                  - UC1tGyMwuF6hUHRp2syrADOQ
+                  - UCP9D9cyFUX6WYTNxbgGDeCA
+                  - UCQo0PUtOXrhrHAK75cuQ4eQ
+                  - UCrsaEXllMuVIDoEF4HolEmQ
+                  - UC8M5YVWQan_3Elm-URehz9w
+                  - UCv2_41bSAa5Y_8BacJUZfjQ
+                  - UCCWEi8MG1FxOlprq_T9M6WA
+                  - UCdARvxgVxVzxvtyPb2CqO-w
+                  - UC5dgoavpIertLkNDDITDoBQ
+                  - UC97ysepeThCEbhrWhYrqxAw
+                  - UCgT7_ToRmjVxqN6z98dOMSQ
+                  - UCJOavwvh3Tb3LwmmA01M87Q
+
+  - name: Lab
+    show-mobile-header: true
+    center-vertically: true
+    columns:
+      - size: full
+        widgets:
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: Actual
+                allow-insecure: true
+                url: https://192.168.0.7:5006
+              - title: Filebrowser
+                allow-insecure: true
+                url: https://filebrowser.ollaris.org
+              - title: Gitea
+                allow-insecure: true
+                url: http://192.168.0.10:3000
+              - title: Mealie
+                allow-insecure: true
+                url: https://mealie.ollaris.org
+              - title: Pastefy
+                allow-insecure: true
+                url: https://snippets.ollaris.org
+              - title: Plex
+                allow-insecure: true
+                url: https://plex.ollaris.org/web/index.html#!/
+              - title: Sftpgo
+                allow-insecure: true
+                url: http://192.168.0.15:8080
+              - title: Teamcity
+                allow-insecure: true
+                url: http://192.168.0.11:8111/login.html
+              - title: Transmission
+                allow-insecure: true
+                url: http://192.168.0.5
+              - title: Urbackup
+                allow-insecure: true
+                url: http://192.168.0.2:55414
+              - title: Youtrack
+                allow-insecure: true
+                url: http://192.168.0.12:8080
+              - title: Coder 
+                allow-insecure: true
+                url: https://coder.ollaris.org
