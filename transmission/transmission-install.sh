@@ -15,7 +15,9 @@ $STD apk add transmission-daemon --no-cache
 
 $STD rc-update add transmission-daemon
 
-$STD mkdir -p /var/lib/transmission/config/
+$STD mkdir -p /var/lib/transmission/config/resume/
+$STD mkdir -p /var/lib/transmission/config/torrents/
+$STD mkdir -p /var/lib/transmission/config/blocklists/
 $STD echo "{\"rpc-whitelist-enabled\": false, \"rpc-host-whitelist-enabled\": false, \"port-forwarding-enabled\": false}" > /var/lib/transmission/config/settings.json
 msg_ok "Installed Transmission"
 
