@@ -21,7 +21,7 @@ curl -fsSL "https://github.com/glanceapp/glance/releases/download/v${RELEASE}/gl
 mkdir -p /opt/glance
 tar -xzf glance-linux-amd64.tar.gz -C /opt/glance
 
-curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/glance/glance-config.sh -o /opt/glance/glance.yml
+curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/glance/glance-config.yml -o /opt/glance/glance.yml
 
 echo "${RELEASE}" >"/opt/${APPLICATION}_version.txt"
 msg_ok "Installed Glance"
