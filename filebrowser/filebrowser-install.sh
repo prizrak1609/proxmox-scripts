@@ -59,11 +59,13 @@ chmod 644 "$DB_PATH"
 msg_ok "Directory created successfully"
 
 CHOICE=$(
-  whiptail --backtitle "Proxmox VE Helper Scripts" --radiolist --title "Select" --menu "Would you like to use No 
-Authentication? (y/N):" 11 58 2 \
-	"1" "Yes" \
-	"2" "No" \
-	2>&1 1>&2
+  whiptail --backtitle "Proxmox VE Helper Scripts" \
+  --title "Select" \
+  --menu "Would you like to use No Authentication? (y/N):" \
+  11 58 2 \
+  "1" "Yes" \
+  "2" "No" \
+  2>&1 1>&2
 )
 
 case $CHOICE in
