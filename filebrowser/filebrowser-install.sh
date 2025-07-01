@@ -43,23 +43,23 @@ echo -e "${CROSS} ${RD}${msg}${CL}"
 PORT=${DEFAULT_PORT}
 
 msg_info "Installing ${APP} on ${OS}"
-$PKG_MANAGER wget tar curl &>/dev/null
-curl -fsSL "https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz" | 
-tar -xzv -C /usr/local/bin &>/dev/null
-chmod +x "$INSTALL_PATH"
+$STD $PKG_MANAGER wget tar curl &>/dev/null
+$STD curl -fsSL "https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz" | 
+$STD tar -xzv -C /usr/local/bin &>/dev/null
+$STD chmod +x "$INSTALL_PATH"
 msg_ok "Installed ${APP}"
 
 msg_info "Creating FileBrowser directory"
-mkdir -p /usr/local/community-scripts
-chown root:root /usr/local/community-scripts
-chmod 755 /usr/local/community-scripts
-touch "$DB_PATH"
-chown root:root "$DB_PATH"
-chmod 644 "$DB_PATH"
+$STD mkdir -p /usr/local/community-scripts
+$STD chown root:root /usr/local/community-scripts
+$STD chmod 755 /usr/local/community-scripts
+$STD touch "$DB_PATH"
+$STD chown root:root "$DB_PATH"
+$STD chmod 644 "$DB_PATH"
 msg_ok "Directory created successfully"
 
 CHOICE=$(
-  whiptail --backtitle "Proxmox VE Helper Scripts" \
+  $STD whiptail --backtitle "Proxmox VE Helper Scripts" \
   --title "Select" \
   --menu "Would you like to use No Authentication? (y/N):" \
   11 58 2 \
@@ -70,21 +70,21 @@ CHOICE=$(
 
 case $CHOICE in
 1)
-  msg_info "Configuring No Authentication"
-	cd /usr/local/community-scripts
-	filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	filebrowser config init --auth.method=noauth &>/dev/null
-	filebrowser config set --auth.method=noauth &>/dev/null
-	filebrowser users add ID 1 --perm.admin &>/dev/null
+	msg_info "Configuring No Authentication"
+	$STD cd /usr/local/community-scripts
+	$STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+	$STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+	$STD filebrowser config init --auth.method=noauth &>/dev/null
+	$STD filebrowser config set --auth.method=noauth &>/dev/null
+	$STD filebrowser users add ID 1 --perm.admin &>/dev/null
 	msg_ok "No Authentication configured"
   ;;
 2)
-  msg_info "Setting up default authentication"
-	cd /usr/local/community-scripts
-	filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	filebrowser users add admin admin --perm.admin --database "$DB_PATH" &>/dev/null
+	msg_info "Setting up default authentication"
+	$STD cd /usr/local/community-scripts
+	$STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+	$STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+	$STD filebrowser users add admin admin --perm.admin --database "$DB_PATH" &>/dev/null
 	msg_ok "Default authentication configured (admin:helper-scripts.com)"
   exit
   ;;
@@ -105,9 +105,9 @@ depend() {
 need net
 }
 EOF
-chmod +x "$SERVICE_PATH"
-rc-update add filebrowser default &>/dev/null
-rc-service filebrowser start &>/dev/null
+$STD chmod +x "$SERVICE_PATH"
+$STD rc-update add filebrowser default &>/dev/null
+$STD rc-service filebrowser start &>/dev/null
 msg_ok "Service created successfully"
 
 msg_ok "${CM} ${GN}${APP} is reachable at: ${BL}http://$IP:$PORT${CL}"
