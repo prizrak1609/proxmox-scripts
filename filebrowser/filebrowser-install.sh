@@ -58,40 +58,28 @@ $STD chown root:root "$DB_PATH"
 $STD chmod 644 "$DB_PATH"
 msg_ok "Directory created successfully"
 
-CHOICE=$(
-  $STD whiptail --backtitle "Proxmox VE Helper Scripts" \
-  --title "Select" \
-  --menu "Would you like to use No Authentication? (y/N):" \
-  11 58 2 \
-  "1" "Yes" \
-  "2" "No" \
-  2>&1 1>&2
-)
 
-case $CHOICE in
-1)
-	msg_info "Configuring No Authentication"
-	$STD cd /usr/local/community-scripts
-	$STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	$STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	$STD filebrowser config init --auth.method=noauth &>/dev/null
-	$STD filebrowser config set --auth.method=noauth &>/dev/null
-	$STD filebrowser users add ID 1 --perm.admin &>/dev/null
-	msg_ok "No Authentication configured"
-  ;;
-2)
-	msg_info "Setting up default authentication"
-	$STD cd /usr/local/community-scripts
-	$STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	$STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
-	$STD filebrowser users add admin admin --perm.admin --database "$DB_PATH" &>/dev/null
-	msg_ok "Default authentication configured (admin:helper-scripts.com)"
-  exit
-  ;;
-esac
+read -r -p "Would you like to use No Authentication? (y/N): " auth_prompt
+if [[ "${auth_prompt,,}" =~ ^(y|yes)$ ]]; then
+    msg_info "Configuring No Authentication"
+    $STD cd /usr/local/community-scripts
+    $STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+    $STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+    $STD filebrowser config init --auth.method=noauth &>/dev/null
+    $STD filebrowser config set --auth.method=noauth &>/dev/null
+    $STD filebrowser users add ID 1 --perm.admin &>/dev/null
+    msg_ok "No Authentication configured"
+else
+    msg_info "Setting up default authentication"
+    $STD cd /usr/local/community-scripts
+    $STD filebrowser config init -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+    $STD filebrowser config set -a '0.0.0.0' -p "$PORT" -d "$DB_PATH" &>/dev/null
+    $STD filebrowser users add admin helper-scripts.com --perm.admin --database "$DB_PATH" &>/dev/null
+    msg_ok "Default authentication configured (admin:helper-scripts.com)"
+fi
 
 msg_info "Creating service"
-cat <<EOF >"$SERVICE_PATH"
+$STD cat <<EOF >"$SERVICE_PATH"
 #!/sbin/openrc-run
 
 command="/usr/local/bin/filebrowser"
