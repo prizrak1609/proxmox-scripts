@@ -22,7 +22,7 @@ $STD sleep 5s
 $STD service gitea stop
 $STD echo "runas_user=root" >> /etc/conf.d/gitea
 $STD adduser gitea wheel
-$STD usermod --uid 0 --gid 0 gitea
+$STD usermod --gid 0 gitea
 msg_ok "Started Gitea"
 
 motd_ssh
