@@ -9,7 +9,7 @@ network_check
 update_os
 
 msg_info "Installing Gitea"
-$STD apk add --no-cache gitea
+$STD apk add --no-cache gitea shadow
 msg_ok "Installed Gitea"
 
 msg_info "Enabling Gitea Service"
@@ -18,6 +18,11 @@ msg_ok "Enabled Gitea Service"
 
 msg_info "Starting Gitea"
 $STD service gitea start
+$STD sleep 5s
+$STD service gitea stop
+$STD echo "runas_user=root" >> /etc/conf.d/gitea
+$STD adduser gitea wheel
+$STD usermod --uid 0 --gid 0 gitea
 msg_ok "Started Gitea"
 
 motd_ssh
