@@ -22,7 +22,16 @@ $STD sleep 5s
 $STD service gitea stop
 $STD echo "runas_user=root" >> /etc/conf.d/gitea
 $STD adduser gitea wheel
+$STD adduser gitea root
 $STD usermod --gid 0 gitea
+$STD touch /etc/gitconfig
+$STD chmod 666 /etc/gitconfig
+$STD mkdir -p /home/gitea
+$STD chown gitea:root /home/gitea
+$STD echo "[git]
+# https://docs.gitea.com/1.18/advanced/config-cheat-sheet
+HOME_PATH=\"/home/gitea\"" > /etc/gitea/app.ini
+$STD service gitea start
 msg_ok "Started Gitea"
 
 motd_ssh
