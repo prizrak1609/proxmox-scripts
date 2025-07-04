@@ -15,6 +15,7 @@ msg_ok "Installed Dependencies"
 msg_info "Configuring docker"
 $STD rc-update add docker
 $STD service docker start
+$STD sleep 5s
 msg_ok "Configured docker"
 
 msg_info "Configuring pastefy"
