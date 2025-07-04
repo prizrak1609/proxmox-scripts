@@ -9,7 +9,7 @@ network_check
 update_os
 
 msg_info "Installing Dependencies"
-$STD apk add docker docker-compose curl --no-cache
+$STD apk add docker docker-compose git --no-cache
 msg_ok "Installed Dependencies"
 
 msg_info "Configuring docker"
@@ -20,7 +20,7 @@ msg_ok "Configured docker"
 
 msg_info "Configuring pastefy"
 $STD mkdir -p /home/pastefy && cd /home/pastefy
-$STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/pastefy/pastefy-docker-compose.yaml -o docker-compose.yaml
+$STD git clone https://github.com/interaapps/pastefy.git .
 msg_ok "Configured pastefy"
 
 motd_ssh
