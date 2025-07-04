@@ -11,14 +11,6 @@ sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubuser
 
 source <(cat "$tmp_dir/build.func")
 
-# if parameter is passed, use it as CTID
-if [ -n "$1" ]; then
-  lxc-attach -n "$1" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/pastefy/pastefy-install.sh)"
-
-  description
-  exit 0
-fi
-
 APP="Pastefy"
 var_tags="snippets"
 var_cpu="1"
@@ -60,6 +52,13 @@ function update_script() {
   $STD docker compose up -d
   msg_ok "Updated pastefy"
 }
+
+if [ -n "$1" ]; then
+  lxc-attach -n "$1" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/pastefy/pastefy-install.sh)"
+
+  description
+  exit 0
+fi
 
 start
 build_container
