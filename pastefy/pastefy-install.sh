@@ -21,6 +21,7 @@ msg_ok "Configured docker"
 msg_info "Configuring pastefy"
 $STD mkdir -p /home/pastefy && cd /home/pastefy
 $STD git clone https://github.com/interaapps/pastefy.git .
+$STD sed -i "s/pastefy:$/pastefy:\n restart: always/" docker-compose.yaml
 $STD sed -i "s/SERVER_NAME: \"http:\/\/localhost:9999\"/SERVER_NAME: \"https:\/\/snippets.ollaris.org\"/" docker-compose.yaml
 msg_ok "Configured pastefy"
 
