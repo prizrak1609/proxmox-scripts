@@ -11,10 +11,10 @@ sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubuser
 
 source <(cat "$tmp_dir/build.func")
 
-APP="NGINX Proxy Manager"
-var_tags="proxy"
+APP="Pastefy"
+var_tags="snippets"
 var_cpu="1"
-var_ram="512"
+var_ram="256"
 var_disk="2"
 var_os="alpine"
 var_version="3.22"
@@ -32,31 +32,35 @@ function update_script() {
   header_info
   check_container_storage
   check_container_resources
-  
+
   msg_info "Updating Alpine Packages"
   $STD apk -U upgrade
   msg_ok "Updated Alpine Packages"
 
   msg_info "Updating Dependencies"
-  $STD apk upgrade docker docker-compose
+  $STD apk upgrade docker docker-compose git
   msg_ok "Updated Dependencies"
 
+  msg_info "Updating pastefy"
+  $STD cd /home/pastefy
+  $STD git fetch --all
+  $STD git reset --hard origin/master
   $STD docker compose stop
   $STD docker compose rm -f
+  $STD docker builder prune -af
   $STD docker compose pull   
   $STD docker compose up -d
-
-  exit
+  msg_ok "Updated pastefy"
 }
 
 start
 build_container
 
-lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/nginx-proxy-manager/nginx-proxy-manager-install.sh)"
+lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/pastefy/pastefy-install.sh)"
 
 description
 
 msg_ok "Completed Successfully!\n"
 echo -e "${CREATING}${GN}${APP} setup has been successfully initialized!${CL}"
 echo -e "${INFO}${YW} Access it using the following URL:${CL}"
-echo -e "${TAB}${GATEWAY}${BGN}https://${IP}:81${CL}"
+echo -e "${TAB}${GATEWAY}${BGN}http://${IP}:9999${CL}"
