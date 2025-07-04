@@ -53,13 +53,6 @@ function update_script() {
   msg_ok "Updated pastefy"
 }
 
-if [ -n "$1" ]; then
-  lxc-attach -n "$1" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/pastefy/pastefy-install.sh)"
-
-  description
-  exit 0
-fi
-
 start
 build_container
 
