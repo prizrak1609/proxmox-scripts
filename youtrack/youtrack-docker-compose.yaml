@@ -2,7 +2,7 @@ name: youtrack
 
 services:
   youtrack:
-    image: jetbrains/youtrack:latest
+    image: jetbrains/youtrack:2025.1.82518
     container_name: youtrack
     restart: always
     ports:

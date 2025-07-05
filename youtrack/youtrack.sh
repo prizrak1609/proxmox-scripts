@@ -33,10 +33,7 @@ function update_script() {
   check_container_storage
   check_container_resources
 
-  $STD docker compose stop
-  $STD docker compose rm -f
-  $STD docker compose pull   
-  $STD docker compose up -d
+  $STD echo -e "${RD}update version in /home/youtrack/docker-compose.yaml${CL}"
 
   exit
 }
