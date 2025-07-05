@@ -1,0 +1,14 @@
+name: youtrack
+
+services:
+  youtrack:
+    image: jetbrains/youtrack:latest
+    container_name: youtrack
+    restart: always
+    ports:
+      - "80:8080"
+    volumes:
+      - /media/server/youtrack/data:/opt/youtrack/data
+      - /media/server/youtrack/conf:/opt/youtrack/conf
+      - /media/server/youtrack/logs:/opt/youtrack/logs
+      - /media/server/youtrack/backups:/opt/youtrack/backups
