@@ -19,6 +19,9 @@ var_disk="2"
 var_os="debian"
 var_version="12"
 var_unprivileged="0"
+var_verbose="yes"
+var_fuse="no"
+var_tun="no"
 
 header_info "$APP"
 variables
