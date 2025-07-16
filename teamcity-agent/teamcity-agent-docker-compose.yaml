@@ -1,0 +1,18 @@
+name: teamcity-agent
+
+services:
+  app:
+    image: 'jetbrains/teamcity-agent:latest'
+    restart: always 
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '8111:8111'
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /media/docker_containers/teamcity-agent/config:/data/teamcity_agent/conf
+      - /media/docker_containers/teamcity-agent/work:/opt/buildagent/work
+      - /media/docker_containers/teamcity-agent/temp:/opt/buildagent/temp
+      - /media/docker_containers/teamcity-agent/tools:/opt/buildagent/tools
+      - /media/docker_containers/teamcity-agent/plugins:/opt/buildagent/plugins
+      - /media/docker_containers/teamcity-agent/system:/opt/buildagent/system
