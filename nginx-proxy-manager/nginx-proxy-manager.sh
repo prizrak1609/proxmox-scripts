@@ -41,8 +41,9 @@ function update_script() {
   $STD apk upgrade docker docker-compose
   msg_ok "Updated Dependencies"
 
-  $STD docker compose stop
+  $STD docker compose down
   $STD docker compose rm -f
+  $STD docker system prune -af
   $STD docker compose pull   
   $STD docker compose up -d
 

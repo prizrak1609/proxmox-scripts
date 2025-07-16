@@ -45,7 +45,7 @@ function update_script() {
   $STD cd /home/pastefy
   $STD git fetch --all
   $STD git reset --hard origin/master
-  $STD docker compose stop
+  $STD docker compose down
   $STD docker compose rm -f
   $STD docker builder prune -af
   $STD docker compose pull   

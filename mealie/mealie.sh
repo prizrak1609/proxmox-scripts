@@ -33,8 +33,9 @@ function update_script() {
   check_container_storage
   check_container_resources
 
-  $STD docker compose stop
+  $STD docker compose down
   $STD docker compose rm -f
+  $STD docker system prune -af
   $STD docker compose pull   
   $STD docker compose up -d
 
