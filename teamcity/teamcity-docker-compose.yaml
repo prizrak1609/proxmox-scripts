@@ -1,0 +1,16 @@
+name: teamcity
+
+services:
+  app:
+    image: 'jetbrains/teamcity-server:latest'
+    restart: always 
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '8111:8111'
+
+    environment:
+      - HOSTNAME="teamcity-server"
+
+    volumes:
+      - /media/docker_containers/teamcity/data:/data/teamcity_server/datadir
+      - /media/docker_containers/teamcity/logs:/opt/teamcity/logs
