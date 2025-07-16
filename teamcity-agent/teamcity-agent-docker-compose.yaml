@@ -4,6 +4,7 @@ services:
   app:
     image: 'jetbrains/teamcity-agent:latest'
     restart: always 
+    user: "0:0"
     ports:
       # These ports are in format <host-port>:<container-port>
       - '8111:8111'

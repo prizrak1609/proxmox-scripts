@@ -17,14 +17,14 @@ $STD rc-update add docker
 $STD service docker start
 msg_ok "Configured docker"
 
-msg_info "Configuring teamcity"
+msg_info "Configuring teamcity-agent"
 $STD cd /root
 $STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/teamcity-agent/teamcity-agent-docker-compose.yaml -o docker-compose.yaml
-msg_ok "Configured teamcity"
+msg_ok "Configured teamcity-agent"
 
 motd_ssh
 customize
 
-msg_info "Starting teamcity"
+msg_info "Starting teamcity-agent"
 $STD docker compose up -d
-msg_ok "Started teamcity"
+msg_ok "Started teamcity-agent"
