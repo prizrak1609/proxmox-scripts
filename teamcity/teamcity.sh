@@ -14,7 +14,7 @@ source <(cat "$tmp_dir/build.func")
 APP="TeamCity"
 var_tags="CI"
 var_cpu="2"
-var_ram="1024"
+var_ram="3072"
 var_disk="5"
 var_os="alpine"
 var_version="3.22"
@@ -42,7 +42,8 @@ function update_script() {
   msg_ok "Updated Dependencies"
 
   $STD cd /root
-  $STD docker compose stop
+  $STD docker compose down
+  $STD docker system prune -af
   $STD docker compose rm -f
   $STD docker compose pull   
   $STD docker compose up -d
