@@ -11,7 +11,7 @@ sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubuser
 
 source <(cat "$tmp_dir/build.func")
 
-APP="TeamCity"
+APP="TeamCity-Agent"
 var_tags="CI"
 var_cpu="10"
 var_ram="10240"

@@ -19,7 +19,7 @@ msg_ok "Configured docker"
 
 msg_info "Configuring teamcity"
 $STD cd /root
-$STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/teamcity/teamcity-docker-compose.yaml -o docker-compose.yaml
+$STD curl -L https://raw.githubusercontent.com/prizrak1609/proxmox-scripts/refs/heads/main/teamcity-agent/teamcity-agent-docker-compose.yaml -o docker-compose.yaml
 msg_ok "Configured teamcity"
 
 motd_ssh
