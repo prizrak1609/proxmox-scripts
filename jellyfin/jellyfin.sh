@@ -7,7 +7,7 @@ curl -L https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/
 # remove
 # lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/"${var_install}".sh)" $?
 # from script so it is usable now
-sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubusercontent.com\/community-scripts\/ProxmoxVE\/main\/install\/"${var_install}".sh)" $?/d' "$tmp_dir/build.func"
+sed -i '/lxc-attach -n "$CTID" -- bash -c "$(curl -fsSL https:\/\/raw.githubusercontent.com\/community-scripts\/ProxmoxVE\/main\/install\/\${var_install}.sh)"/d' "$tmp_dir/build.func"
 
 source <(cat "$tmp_dir/build.func")
 
