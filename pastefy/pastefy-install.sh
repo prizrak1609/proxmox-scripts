@@ -29,6 +29,6 @@ motd_ssh
 customize
 
 msg_info "Starting pastefy"
-$STD docker compose up -d
 $STD docker builder prune -af
+$STD docker compose up -d
 msg_ok "Started pastefy"
